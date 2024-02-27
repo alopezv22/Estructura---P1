@@ -1,0 +1,37 @@
+class Clase:
+    def __init__(self):
+        self.alumnos = []
+
+    def agregar_alumno(self, alumno_id):
+        self.alumnos.append(alumno_id)
+
+    def obtener_alumnos(self):
+        return self.alumnos
+
+def encontrar_alumnos_comunes(clase1, clase2):
+    alumnos_clase1 = clase1.obtener_alumnos()
+    alumnos_clase2 = clase2.obtener_alumnos()
+    return list(set(alumnos_clase1).intersection(alumnos_clase2))
+
+def contar_alumnos_repetidos(alumnos_comunes):
+    return len(alumnos_comunes)
+
+clase_estructura = Clase()
+clase_programacion = Clase()
+
+num_alumnos_estructura = int(input("Ingrese el número de alumnos en Estructura: "))
+for i in range(num_alumnos_estructura):
+    id_alumno = int(input("Ingrese el ID del alumno en Estructura: "))
+    clase_estructura.agregar_alumno(id_alumno)
+
+num_alumnos_programacion = int(input("Ingrese el número de alumnos en Programación: "))
+for i in range(num_alumnos_programacion):
+    id_alumno = int(input("Ingrese el ID del alumno en Programación: "))
+    clase_programacion.agregar_alumno(id_alumno)
+
+alumnos_comunes = encontrar_alumnos_comunes(clase_estructura, clase_programacion)
+
+print("Alumnos comunes en ambas clases:")
+for alumno in alumnos_comunes:
+    print(alumno)
+print("Número de alumnos que se repiten:", contar_alumnos_repetidos(alumnos_comunes))
