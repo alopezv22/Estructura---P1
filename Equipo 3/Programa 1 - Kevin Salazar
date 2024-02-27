@@ -1,0 +1,25 @@
+class RepartoHerencia:
+    def __init__(self, tamano_terreno, herederos_por_generacion):
+        self.tamano_terreno = tamano_terreno
+        self.herederos_por_generacion = herederos_por_generacion
+
+    def calcular_terreno_heredero_recursivo(self, generacion_actual, generaciones_restantes):
+        if generaciones_restantes == 0:
+            return self.tamano_terreno
+        else:
+            tamano_generacion_anterior = self.calcular_terreno_heredero_recursivo(
+                generacion_actual + 1, generaciones_restantes - 1
+            )
+            return tamano_generacion_anterior / self.herederos_por_generacion
+
+    def obtener_terreno_final(self, generaciones):
+        return self.calcular_terreno_heredero_recursivo(0, generaciones)
+
+tamano_terreno = float(input("Ingrese el tamaño inicial del terreno: "))
+generaciones = int(input("Ingrese el número de generaciones: "))
+herederos_por_generacion = int(input("Ingrese el número de herederos por generación: "))
+
+reparto_herencia = RepartoHerencia(tamano_terreno, herederos_por_generacion)
+
+tamano_final = reparto_herencia.obtener_terreno_final(generaciones)
+print(f"El tamaño que le corresponde al heredero después de {generaciones} generaciones es: {tamano_final}")
