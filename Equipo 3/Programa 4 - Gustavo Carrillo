@@ -1,49 +1,55 @@
 import numpy as np
+arreglo1 = []
+arreglo2 = []
+n=int(input("Introducir el tamaño del arreglo: "))
 
-arreglo_1 =[]
-arreglo_2 =[]
-
-for i in range(10):
+print("Ingresar un dato numérico entre [-100, 100] para el vector 1:")
+for i in range(n):
     numero_1=int(input("Introducir un dato al vector 1: "))
     if numero_1>= -100 and numero_1<=100:
-        arreglo_1.append(numero_1)
-
-for i in range(10):
+        arreglo1.append(numero_1)
+        
+print("Ingresar un dato numérico entre [-100, 100] para el vector 2:")
+for j in range(n):
     numero_2 = int(input("Introucir un dato al vector 2: "))
-    if numero_2 <=-100 and numero_2 <=100:
-        arreglo_2.append(numero_2)
+    if numero_2 >=-100 and numero_2 <=100:
+        arreglo2.append(numero_2)
+        
+
+arreglo1= np.array(arreglo1)
+arreglo2= np.array(arreglo2)
 
 while True:
     print("""OPCIONES:
-          SUMA(1)
-          RESTA(2)
-          MOSTRAR(3)
-          SALIR(4)""")
+          SUMA      (1)
+          RESTA     (2)
+          MOSTRAR   (3)
+          SALIR     (4)""")
 
     respuesta=int(input("Introduzca su opción: "))
 
     if respuesta==1:
-        suma_1=[a + b for a, b in zip(arreglo_1, arreglo_2)]
-        
+        suma_1= arreglo1 + arreglo2
+
     elif respuesta==2:
-        resta_1=[c - d for c, d in zip(arreglo_1, arreglo_2)]
-    
+        resta_1= arreglo1 - arreglo2
+
     elif respuesta==3:
         print("""OPCIONES
                 VECTOR 1 (1)
                 VECTOR 2 (2)
-                VECTOR SUMA(3)
-                VECTOR RESTA(4)""")
-        
+                SUMA     (3)
+                RESTA    (4)
+                SALIR    (5)""")
         accederarreglo=int(input("Introduzca su opción: "))
         if accederarreglo==1:
-            print(arreglo_1)
+            print(arreglo1)
         elif accederarreglo==2:
-            print(arreglo_2)
+            print(arreglo2)
         elif accederarreglo==3:
-            print(suma_1)
+            print("Resultado de la suma es: ",suma_1)
         elif accederarreglo==4:
-            print(resta_1)
+            print("Resultado de la resta es: ",resta_1)
         else:
             break
     else:
