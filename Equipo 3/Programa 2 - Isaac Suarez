@@ -1,0 +1,12 @@
+tamaño = int(input("ingresa un tamaño para los arreglos: "))
+
+nombres = []
+longitudes = []
+
+for i in range(tamaño):
+    nombre = input(f"Ingresa un nombre para la posición {i}: ")
+    nombres.append(nombre)
+    longitudes.append(len(nombre))
+
+for i in range(tamaño):
+    print(f"El nombre {nombres[i]} tiene una longitud de {longitudes[i]}")
