@@ -1,0 +1,50 @@
+import numpy as np
+
+arreglo_1 =[]
+arreglo_2 =[]
+
+for i in range(10):
+    numero_1=int(input("Introducir un dato al vector 1: "))
+    if numero_1>= -100 and numero_1<=100:
+        arreglo_1.append(numero_1)
+
+for i in range(10):
+    numero_2 = int(input("Introucir un dato al vector 2: "))
+    if numero_2 <=-100 and numero_2 <=100:
+        arreglo_2.append(numero_2)
+
+while True:
+    print("""OPCIONES:
+          SUMA(1)
+          RESTA(2)
+          MOSTRAR(3)
+          SALIR(4)""")
+
+    respuesta=int(input("Introduzca su opción: "))
+
+    if respuesta==1:
+        suma_1=[a + b for a, b in zip(arreglo_1, arreglo_2)]
+        
+    elif respuesta==2:
+        resta_1=[c - d for c, d in zip(arreglo_1, arreglo_2)]
+    
+    elif respuesta==3:
+        print("""OPCIONES
+                VECTOR 1 (1)
+                VECTOR 2 (2)
+                VECTOR SUMA(3)
+                VECTOR RESTA(4)""")
+        
+        accederarreglo=int(input("Introduzca su opción: "))
+        if accederarreglo==1:
+            print(arreglo_1)
+        elif accederarreglo==2:
+            print(arreglo_2)
+        elif accederarreglo==3:
+            print(suma_1)
+        elif accederarreglo==4:
+            print(resta_1)
+        else:
+            break
+    else:
+        break
