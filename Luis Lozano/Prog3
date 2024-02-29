@@ -1,0 +1,25 @@
+def obtener_alumnos_comunes(estudiantes_estructura, estudiantes_programacion):
+    alumnos_comunes = []
+    repeticiones = 0
+    for alumno in estudiantes_estructura:
+        if alumno in estudiantes_programacion and alumno not in alumnos_comunes:
+            alumnos_comunes.append(alumno)
+            repeticiones += 1
+    return alumnos_comunes, repeticiones
+
+def main():
+    alumnos_estructura = input("Ingrese los IDs de los alumnos de Estructura separados por espacios: ").split()
+    
+
+    alumnos_programacion = input("Ingrese los IDs de los alumnos de Programación separados por espacios: ").split()
+    
+    alumnos_comunes, repeticiones = obtener_alumnos_comunes(alumnos_estructura, alumnos_programacion)
+    
+    print("Alumnos comunes en ambas clases:")
+    for alumno in alumnos_comunes:
+        print(alumno)
+
+    print(f"Número de alumnos que se repiten: {repeticiones}")
+
+if __name__ == "__main__":
+    main()
