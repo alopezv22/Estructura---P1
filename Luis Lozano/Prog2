@@ -1,0 +1,25 @@
+def ingresar_nombres_y_longitudes(tamano):
+    nombres = []
+    longitudes = []
+    
+    for i in range(tamano):
+        nombre = input(f"Ingrese el nombre de la persona {i + 1}: ")
+        nombres.append(nombre)
+        longitudes.append(len(nombre))
+    
+    return nombres, longitudes
+
+def mostrar_nombres_y_longitudes(nombres, longitudes):
+    print("Nombres y Longitudes:")
+    for nombre, longitud in zip(nombres, longitudes):
+        print(f"Nombre: {nombre}, Longitud: {longitud}")
+
+def main():
+    tamano = int(input("Ingrese el tamaño de los arreglos: "))
+    
+    nombres, longitudes = ingresar_nombres_y_longitudes(tamano)
+    
+    mostrar_nombres_y_longitudes(nombres, longitudes)
+
+if __name__ == "__main__":
+    main()
