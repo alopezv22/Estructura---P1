@@ -1,1 +1,24 @@
+def calcular_superficie_heredero(superficie_inicial, num_generaciones, num_herederos_por_generacion):
+    superficie_actual = superficie_inicial
+    
+    for generacion in range(num_generaciones):
+        superficie_actual /= num_herederos_por_generacion
+    
+    return superficie_actual
+
+def main():
+    superficie_inicial = float(input("Ingrese la superficie inicial del terreno: "))
+    num_generaciones = int(input("Ingrese el número de generaciones: "))
+    num_herederos_por_generacion = int(input("Ingrese el número de herederos por generación: "))
+    
+    if num_generaciones > 50:
+        print("El número de generaciones no puede ser mayor que 50.")
+        return
+    
+    superficie_heredero = calcular_superficie_heredero(superficie_inicial, num_generaciones, num_herederos_por_generacion)
+    
+    print(f"La superficie que le corresponde a un heredero después de {num_generaciones} generaciones es: {superficie_heredero}")
+
+if __name__ == "__main__":
+    main()
 
