@@ -1,0 +1,74 @@
+import random
+
+def llenar_vector_aleatorio(tamano):
+    return [random.randint(1, 100) for _ in range(tamano)]
+
+def suma_vectores(vector_a, vector_b):
+    return [a + b for a, b in zip(vector_a, vector_b)]
+
+def resta_vectores(vector_a, vector_b):
+    return [b - a for a, b in zip(vector_a, vector_b)]
+
+def mostrar_vector(vector, nombre):
+    print(f"Vector {nombre}: {vector}")
+
+def main():
+    vector_a = []
+    vector_b = []
+    vector_c = []
+
+    while True:
+        print("\nMenú:")
+        print("1. Llenar Vector A de manera aleatoria.")
+        print("2. Llenar Vector B de manera aleatoria.")
+        print("3. Realizar C=A+B")
+        print("4. Realizar C=B-A")
+        print("5. Mostrar (Permitiendo al usuario elegir entre el Vector A, B, o C).")
+        print("6. Salir.")
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            tamano_a = int(input("Ingrese el tamaño del Vector A: "))
+            vector_a = llenar_vector_aleatorio(tamano_a)
+            print("Vector A llenado de manera aleatoria.")
+
+        elif opcion == "2":
+            tamano_b = int(input("Ingrese el tamaño del Vector B: "))
+            vector_b = llenar_vector_aleatorio(tamano_b)
+            print("Vector B llenado de manera aleatoria.")
+
+        elif opcion == "3":
+            if len(vector_a) != len(vector_b):
+                print("Los vectores deben tener la misma longitud para realizar la suma.")
+            else:
+                vector_c = suma_vectores(vector_a, vector_b)
+                print("La suma de los vectores A y B se ha realizado correctamente.")
+
+        elif opcion == "4":
+            if len(vector_a) != len(vector_b):
+                print("Los vectores deben tener la misma longitud para realizar la resta.")
+            else:
+                vector_c = resta_vectores(vector_a, vector_b)
+                print("La resta de los vectores B y A se ha realizado correctamente.")
+
+        elif opcion == "5":
+            subopcion = input("¿Qué vector desea mostrar? (A, B, o C): ")
+            if subopcion.upper() == "A":
+                mostrar_vector(vector_a, "A")
+            elif subopcion.upper() == "B":
+                mostrar_vector(vector_b, "B")
+            elif subopcion.upper() == "C":
+                mostrar_vector(vector_c, "C")
+            else:
+                print("Opción no válida.")
+
+        elif opcion == "6":
+            print("Saliendo del programa.")
+            break
+
+        else:
+            print("Opción no válida. Por favor, seleccione una opción válida del menú.")
+
+if __name__ == "__main__":
+    main()
